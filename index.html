@@ -354,7 +354,7 @@ URL d’accès à la base de données, nom d’utilisateur et mot de passe).</p>
 </dd>
 <dt>Programmes à implémenter</dt><dd><p>Pour chaque fonctionnalité ci-dessous, créez une classe Java sur le modèle
 de la classe <code class="docutils literal notranslate"><span class="pre">com.animoz.Application</span></code> :</p>
-<ul class="simple">
+<ul>
 <li><p>Afficher sur la console la liste des espèces.</p></li>
 <li><p>Afficher sur la console la liste des animaux (nom et description).</p></li>
 <li><p>Afficher sur la console la liste des animaux carnivores</p></li>
@@ -362,7 +362,17 @@ de la classe <code class="docutils literal notranslate"><span class="pre">com.an
 Pour cela, il faut introduire une relation entre les classes <code class="docutils literal notranslate"><span class="pre">Espece</span></code>
 et <code class="docutils literal notranslate"><span class="pre">Animal</span></code>.</p></li>
 <li><p>Créer une entité <code class="docutils literal notranslate"><span class="pre">Population</span></code> représentant une population d’animaux.
-La table SQL sera :</p></li>
+La table SQL sera :</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">Population</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">bigint</span> <span class="k">not</span> <span class="k">null</span> <span class="n">auto_increment</span><span class="p">,</span>
+    <span class="n">nombreIndividus</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">animal_id</span> <span class="nb">bigint</span><span class="p">,</span>
+    <span class="k">primary</span> <span class="k">key</span> <span class="p">(</span><span class="n">id</span><span class="p">),</span>
+    <span class="k">foreign</span> <span class="k">key</span> <span class="n">fk_animal</span><span class="p">(</span><span class="n">animal_id</span><span class="p">)</span> <span class="k">references</span> <span class="n">Animal</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">InnoDB</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
 <li><p>Afficher le nombre total d’individus d’une espèce donnée.</p></li>
 </ul>
 </dd>

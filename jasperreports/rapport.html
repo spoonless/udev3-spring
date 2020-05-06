@@ -1,0 +1,1010 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Générer des rapports avec JasperReports &mdash; Documentation U&#39;Dev </title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="prev" title="JPA avec Spring Data" href="../spring_data/spring_data_jpa.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> U'Dev
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Java EE ORM</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/intro.html">Les ORM (Object-Relational Mapping)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/intro.html#jdbc-java-database-connectivity">JDBC (Java Database Connectivity)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/intro.html#le-pilote-de-base-de-donnees">Le pilote de base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/intro.html#l-url-de-connexion-et-la-classe-des-pilotes">L’URL de connexion et la classe des pilotes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_entites.html">Les entités JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_entites.html#l-entitymanager">L’EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#obtenir-un-entitymanager">Obtenir un EntityManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#creer-une-fabrique-d-entitymanager">Créer une fabrique d’EntityManager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_entites.html#manipuler-des-entites-a-partir-d-un-entitymanager">Manipuler des entités à partir d’un EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-persist">La méthode persist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-find">La méthode find</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-refresh">La méthode refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-merge">La méthode merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-detach">La méthode detach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-remove">La méthode remove</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_queries.html">Les requêtes JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-natives">Les requêtes Natives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-jpql">Les requêtes JPQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-par-programmation">Les requêtes par programmation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#utilisation-de-requetes-nommees">Utilisation de requêtes nommées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_relations.html">Les relations avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html">L’héritage avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#l-annotation-inheritance">L’annotation &#64;Inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-une-seule-table">Héritage avec une seule table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-jointure-de-tables">Héritage avec jointure de tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-une-table-par-classe">Héritage avec une table par classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#l-heritage-et-les-requetes-jpql-polymorphiques">L’héritage et les requêtes JPQL polymorphiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/introduction.html#les-modules-spring">Les modules Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/introduction.html#les-projets-spring">Les projets Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/introduction.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/principe_ioc.html">L’inversion de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/principe_ioc.html#principe-et-implementation">Principe et implémentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/principe_ioc.html#notion-de-conteneur-ioc">Notion de conteneur IoC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/application_context.html">Le contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#definition-d-un-contexte-d-application-en-xml">Définition d’un contexte d’application en XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#definition-de-beans-dans-le-contexte">Définition de beans dans le contexte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#notion-de-portee-scope">Notion de portée (scope)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#les-differentes-facons-de-creer-des-objets">Les différentes façons de créer des objets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#injection-de-types-simples">Injection de types simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#injection-de-beans">Injection de beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#gestion-du-cycle-de-vie-des-beans">Gestion du cycle de vie des beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#autowiring">Autowiring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#contexte-d-application-en-java">Contexte d’application en Java</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/annotations.html">Déclaration par annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#configuration-du-support-des-annotations">Configuration du support des annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-required">L’annotation &#64;Required</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-value">L’annotation &#64;Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-autowired">L’annotation &#64;Autowired</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-qualifier">L’annotation &#64;Qualifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#les-annotations-jsr-250">Les annotations JSR-250</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#detection-automatique-des-beans-autoscan">Détection automatique des beans (<em>autoscan</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#support-de-annotations-standard-jsr-330">Support de annotations standard JSR-330</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/application_context_conf.html">Configuration d’un contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context_conf.html#le-propertyplaceholderconfigurer">Le PropertyPlaceholderConfigurer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/spring_tx.html">Spring Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#la-transaction">La transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#transaction-globale-et-transaction-locale">Transaction globale et transaction locale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#declaration-d-un-gestionnaire-de-transactions-avec-spring">Déclaration d’un gestionnaire de transactions avec Spring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_framework/spring_tx.html#gestionnaire-de-transactions-jpa">Gestionnaire de transactions JPA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#strategie-des-transactions">Stratégie des transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#utilisation-de-l-annotation-transactional">Utilisation de l’annotation &#64;Transactional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#configuration-avancee-pour-les-transactions">Configuration avancée pour les transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_framework/spring_tx.html#la-propagation">La propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_framework/spring_tx.html#l-isolation">L’isolation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/spring_dao.html">Spring DAO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_dao.html#l-annotation-repository">L’annotation &#64;Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_dao.html#integration-de-jpa">Intégration de JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_dao.html#uniformite-de-la-hierarchie-des-exceptions">Uniformité de la hiérarchie des exceptions</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring MVC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_mvc/spring_mvc.html">Spring MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#dependance-a-spring-mvc">Dépendance à Spring MVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-dispatcherservlet">La DispatcherServlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#contexte-d-application-web">Contexte d’application Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-controleurs">Les contrôleurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-signature-des-methodes-de-controleur">La signature des méthodes de contrôleur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-valeur-de-retour">La valeur de retour</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-vues-jsp">Les vues JSP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#spring-s-jsp-taglib">Spring’s JSP taglib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#form-taglib">Form taglib</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#post-redirect-get-avec-spring-mvc">POST-redirect-GET avec Spring MVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#validation-des-parametres-d-une-requete">Validation des paramètres d’une requête</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-gestion-des-exceptions">La gestion des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#methodes-de-modele">Méthodes de modèle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#methodes-de-binder">Méthodes de binder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#utiliser-le-contexte-de-l-application">Utiliser le contexte de l’application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#controlleradvice">ControllerAdvice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html">Les API Web avec Spring MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#l-annotation-restcontroller">L’annotation &#64;RestController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#support-du-format-json">Support du format JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#un-controleur-pour-une-api-web">Un contrôleur pour une API Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#la-negociation-de-contenu">La négociation de contenu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#l-envoi-de-donnees">L’envoi de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#la-reponse">La réponse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#restcontrolleradvice">RestControllerAdvice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#les-annotations-jackson">Les annotations Jackson</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#les-vues-json">Les vues JSON</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#implementation-d-un-client">Implémentation d’un client</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_data/spring_data_jpa.html">JPA avec Spring Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#ajout-de-spring-data-jpa-dans-un-projet-maven">Ajout de Spring Data JPA dans un projet Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#notion-de-repository">Notion de repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#configuration-des-repositories">Configuration des repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#ajout-de-methodes-dans-une-interface-de-repository">Ajout de méthodes dans une interface de repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_data/spring_data_jpa.html#requetes-nommees-jpa">Requêtes nommées JPA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_data/spring_data_jpa.html#utilisation-de-query">Utilisation de &#64;Query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#declaration-de-requetes-de-modification">Déclaration de requêtes de modification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#implementation-des-methodes-de-repository">Implémentation des méthodes de repository</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">JasperReports</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Générer des rapports avec JasperReports</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#le-cycle-de-vie-de-la-production-d-un-rapport">Le cycle de vie de la production d’un rapport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-structure-d-un-modele-de-rapport">La structure d’un modèle de rapport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conception-d-un-modele-de-rapport">Conception d’un modèle de rapport</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#definition-d-une-source-de-donnees">Définition d’une source de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creation-du-rapport">Création du rapport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extraire-le-modele">Extraire le modèle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-dans-un-projet-maven">Intégration dans un projet Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-production-d-un-rapport-en-java">La production d’un rapport en Java</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-avec-spring-mvc">Intégration avec Spring MVC</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">U'Dev</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Accueil</a> &raquo;</li>
+        
+      <li>Générer des rapports avec JasperReports</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+      
+        <a href="../spring_data/spring_data_jpa.html" class="btn btn-neutral" title="JPA avec Spring Data" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="generer-des-rapports-avec-jasperreports">
+<h1>Générer des rapports avec JasperReports<a class="headerlink" href="#generer-des-rapports-avec-jasperreports" title="Lien permanent vers ce titre">¶</a></h1>
+<p>La production de rapports est une partie importante de l’informatique de gestion
+et de la <em>Business Intelligence</em> (BI). Il s’agit de produire une synthèse des
+informations (souvent extraites d’une ou de plusieurs bases de données).</p>
+<p><a class="reference external" href="https://community.jaspersoft.com/">JasperReports</a> offre un ensemble d’outils pour permettre la génération de rapports
+à partir de différentes sources de données.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Les outils <a class="reference external" href="https://community.jaspersoft.com/">JasperReports</a> sont distribués sous deux licences :</p>
+<ul class="simple">
+<li><p>Une licence open source appelée <em>Community Edition</em> (CE)</p></li>
+<li><p>Une licence commerciale (payante) offrant des services annexes et l’accès au support.</p></li>
+</ul>
+<p>Pour les exemples de ce chapitre, nous nous baserons sur la version CE.</p>
+</div>
+<p>Parmi les outils disponibles pour la version <em>Community Edition</em>, on trouve :</p>
+<dl class="simple">
+<dt>JasperReports library</dt><dd><p><a class="reference external" href="https://community.jaspersoft.com/">JasperReports</a> fournit une bibliothèque Java permettant d’intégrer dans
+une application des fonctionnalités de gestion de rapport.</p>
+</dd>
+<dt>Jaspersoft Studio</dt><dd><p>Une application permettant de créer les modèles de rapport et
+de générer directement les rapports.</p>
+</dd>
+<dt>JasperReports Server</dt><dd><p>Un serveur permettant de déployer des modèles de rapport et de fournir un
+service en ligne pour la génération des rapports.</p>
+</dd>
+<dt>JasperSoft ETL</dt><dd><p>Un <a class="reference external" href="https://fr.wikipedia.org/wiki/Extract-transform-load">ETL</a> pour réaliser des extractions et des transformations de données en
+vue du chargement d’un <em>data warehouse</em>.</p>
+</dd>
+</dl>
+<p>Dans ce chapitre, nous verrons comment intégrer <em>JasperReports library</em> à une
+application Java pour produire un rapport à partir d’un modèle créé avec
+<em>JasperSoft Studio</em>.</p>
+<div class="section" id="le-cycle-de-vie-de-la-production-d-un-rapport">
+<h2>Le cycle de vie de la production d’un rapport<a class="headerlink" href="#le-cycle-de-vie-de-la-production-d-un-rapport" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un rapport est un document présentant une synthèse des données d’un système
+d’information. Il est le plus souvent constitué d’un ou plusieurs tableaux
+de données et/ou de diagrammes (diagramme camembert, diagramme en bâton…).</p>
+<p><a class="reference external" href="https://community.jaspersoft.com/">JasperReports</a> permet de produire un rapport à partir d’une source de données
+(<em>datasource</em>), d’un modèle de rendu et d’un exportateur (<em>exporter</em>) capable
+de produire un document dans le format désiré. <a class="reference external" href="https://community.jaspersoft.com/">JasperReports</a> est capable
+d’exploiter des sources de données de divers formats : base de données, fichier
+CSV, collection d’objets… Un modèle de rapport est un fichier XML (avec
+l’extension <code class="docutils literal notranslate"><span class="pre">.jrxml</span></code>) décrivant la structure du document final. Jaspersoft
+Studio va nous permettre de créer facilement un modèle de rapport. Enfin,
+l’exportateur de document est un des objets fournis par <em>JasperReports library</em>
+pour créer le document final. <em>JasperReports library</em> propose des exportateurs
+pour de nombreux formats : PDF, Excel, Odt, PowerPoint…</p>
+<p>Le cycle de vie pour la production d’un rapport se découpe de la manière suivante :</p>
+<dl>
+<dt>Conception</dt><dd><p>L’objectif de cette phase est de définir la structure de la source de données
+et de créer le modèle de rapport en conséquence. Le modèle sera un fichier
+XML avec l’extension <code class="docutils literal notranslate"><span class="pre">.jrxml</span></code>. La création du modèle peut se faire en
+utilisant Jaspersoft Studio.</p>
+</dd>
+<dt>Compilation</dt><dd><p>Le modèle de rapport doit être compilé. Cette phase n’existe que pour des
+raisons de performance, notamment si la génération du rapport est une activité
+réalisée fréquemment. Dans cas, on peut sauver le résultat de la compilation
+dans un fichier binaire <code class="docutils literal notranslate"><span class="pre">.jrprint</span></code> afin que l’applicatif devant produire
+le rapport n’ait pas à effectuer systématiquement la compilation et utilise
+directementle fichier <code class="docutils literal notranslate"><span class="pre">.jrprint</span></code>.</p>
+<p>La compilation du modèle peut se faire en utilisant Jaspersoft Studio ou
+dans votre programme Java grâce à la bibliothèque JasperReports.</p>
+</dd>
+<dt>Génération</dt><dd><p>La génération consiste à produire le rapport à partir des données extraites
+de la source de données.</p>
+</dd>
+<dt>Export</dt><dd><p>L’export permet la production du document final dans un format qui dépend
+de l’exportateur utilisé.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="la-structure-d-un-modele-de-rapport">
+<h2>La structure d’un modèle de rapport<a class="headerlink" href="#la-structure-d-un-modele-de-rapport" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un modèle de rapport est composé d’une succession de lignes (appelées <em>band</em>
+dans <a class="reference external" href="https://community.jaspersoft.com/">JasperReports</a>). Les <em>bands</em> sont groupés logiquement dans les sections
+suivantes :</p>
+<dl class="simple">
+<dt>Titre</dt><dd><p>La section du titre de document qui n’apparaît que sur la première page du rapport.</p>
+</dd>
+<dt>En-tête de page</dt><dd><p>L’en-tête de page est répété sur chaque page du rapport.</p>
+</dd>
+<dt>En-tête de colonnes</dt><dd><p>Pour le rapport présentant des tableaux, cette zone permet de définir le nom
+des colonnes qui sera répété sur chaque page.</p>
+</dd>
+<dt>Détail</dt><dd><p>La section de détail sert à définir l’affichage des données du rapport.
+Pour une présentation en tableau, cette section sert à définir le format d’une
+ligne du tableau. Un modèle de rapport peut contenir plusieurs sections de
+détail.</p>
+</dd>
+<dt>Pied de colonne</dt><dd><p>Cette zone permet de définir le pied de chaque colonne à la fin du tableau.
+Par exemple, cela peut permettre de créer une ligne pour les totaux.</p>
+</dd>
+<dt>Résumé</dt><dd><p>Le résumé est la section qui sera insérée à la fin du rapport.</p>
+</dd>
+<dt>Arrière-plan</dt><dd><p>Cette section est une zone particulière puisqu’elle représente ce qui doit
+être ajouté en arrière plan du rapport. Il peut s’agir d’une image de fond par
+exemple.</p>
+</dd>
+</dl>
+<div class="figure align-center" id="id1">
+<img alt="../_images/structure_rapport.png" src="../_images/structure_rapport.png" />
+<p class="caption"><span class="caption-text">La structure d’un modèle de rapport vierge dans Jaspersoft Studio</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Jaspersoft Studio vous permet de définir le contenu de chacune de ces sections.
+Aucune de ces sections n’est obligatoire dans le modèle de rapport. Vous pouvez
+supprimer les zones qui ne sont pas nécessaires. Il est ainsi possible de concevoir
+des styles de rapports très différents.</p>
+</div>
+<div class="section" id="conception-d-un-modele-de-rapport">
+<h2>Conception d’un modèle de rapport<a class="headerlink" href="#conception-d-un-modele-de-rapport" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vous pouvez télécharger la version <em>Community Edition</em> de Jaspersoft Studio
+à cette adresse :</p>
+<blockquote>
+<div><p><a class="reference external" href="https://sourceforge.net/projects/jasperstudio/">https://sourceforge.net/projects/jasperstudio/</a></p>
+</div></blockquote>
+</div>
+<p>Jaspersoft Studio permet de concevoir un modèle de rapport. Il permet également
+de déclarer des sources de données et de produire le rapport final.</p>
+<div class="figure align-center" id="id2">
+<img alt="../_images/studio_ide.png" src="../_images/studio_ide.png" />
+<p class="caption"><span class="caption-text">L’interface de Jaspersoft Studio</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Exemple - Génération d’un rapport</p>
+<p>Dans ce chapitre, nous allons créer un rapport à partir d’un fichier CSV.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Le fichier d’exemple personnes.csv</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PRENOM,NOM,AGE
+Jean,Ronin,34
+Richard,Minieu,56
+Isabelle,Vivian,28
+Juliette,Feschin,24
+</pre></div>
+</div>
+</div>
+<p>Vous pouvez télécharger le projet Java final :
+<a class="reference download internal" download="" href="../_downloads/d5e3482eff91dcd01a46d0ba00f1886d/exemple-jasperreports.zip"><code class="xref download docutils literal notranslate"><span class="pre">exemple-jasperreports.zip</span></code></a></p>
+</div>
+<div class="section" id="definition-d-une-source-de-donnees">
+<h3>Définition d’une source de données<a class="headerlink" href="#definition-d-une-source-de-donnees" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un rapport dépend d’une source de données. Si la déclaration d’une source de données
+n’est pas nécessaire pour la conception d’un modèle de rapport, elle permet
+cependant de valider le modèle de rapport directement dans Jaspersoft Studio.
+Ce dernier offre en effet la possibilité de prévisualiser un rapport.</p>
+<p>Jaspersoft Studio dispose d’un onglet <span class="guilabel">Repository Explorer</span> à partir
+duquel on peut créer des sources de données de divers types : base de données,
+fichier CSV, document XML…</p>
+<div class="figure align-center" id="id4">
+<img alt="../_images/studio_repository_tab.png" src="../_images/studio_repository_tab.png" />
+<p class="caption"><span class="caption-text">L’onglet <em>Repository Explorer</em></span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Exemple - Génération d’un rapport</p>
+<p>Pour créer une source de données pour notre exemple, faites un clic droit
+dans l’onglet du <span class="guilabel">Repository Explorer</span> et choisissez
+<span class="guilabel">Create Data Adapter</span>. Choisissez ensuite le type <span class="guilabel">CSV File</span>
+et cliquez sur <span class="guilabel">Next</span>.</p>
+<div class="figure align-center" id="id5">
+<img alt="../_images/studio_create_data_adapter.png" src="../_images/studio_create_data_adapter.png" />
+<p class="caption"><span class="caption-text">La boite de dialogue pour la création d’une source de données CSV</span><a class="headerlink" href="#id5" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Dans la boite de dialogue, vous pouvez saisir le nom de la source de données
+et préciser le chemin du fichier <code class="file docutils literal notranslate"><span class="pre">personnes.csv</span></code> qui se trouve
+à la racine du projet Java d’exemple. Cliquez sur la case à cocher
+<span class="guilabel">Skip the first line</span> pour indiquer que la première ligne du fichier
+contient le nom des colonnes. Le fichier sera lu et le nom de chaque colonne
+sera automatiquement ajouté dans la liste.</p>
+</div>
+</div>
+<div class="section" id="creation-du-rapport">
+<h3>Création du rapport<a class="headerlink" href="#creation-du-rapport" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour créer un rapport, vous pouvez sélectionner depuis le menu
+<span class="guilabel">File &gt; New &gt; Jasper Report</span> et donner le nom du fichier.</p>
+<p>Pour la création visuelle d’un modèle de rapport, Jaspersoft Studio vous affiche
+une représentation graphique de votre modèle. Dans l’onglet <span class="guilabel">Outline</span>,
+vous pouvez voir la structure logique de votre modèle, avec notamment les champs
+de votre source de données et les différentes sections du rapport.</p>
+<div class="figure align-center" id="id6">
+<img alt="../_images/studio_outline_tab.png" src="../_images/studio_outline_tab.png" />
+<p class="caption"><span class="caption-text">L’onglet <em>Outline</em></span><a class="headerlink" href="#id6" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Depuis l’onglet <span class="guilabel">Outline</span>, vous pouvez glisser/déposer dans votre
+modèle vos champs et vos paramètres.</p>
+</div>
+<p>Dans l’onglet <span class="guilabel">Palette</span>, vous disposez des éléments graphiques que
+vous pouvez insérer dans chaque zone de votre modèle.</p>
+<div class="figure align-center" id="id7">
+<img alt="../_images/studio_palette_tab.png" src="../_images/studio_palette_tab.png" />
+<p class="caption"><span class="caption-text">L’onglet <em>Palette</em></span><a class="headerlink" href="#id7" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Exemple - Génération d’un rapport</p>
+<p>Créez un modèle pour l’affichage de la liste des données du fichier CSV
+<code class="file docutils literal notranslate"><span class="pre">personnes.csv</span></code> sous la forme d’un tableau. Vous pouvez partir d’un
+modèle d’exemple de Jaspersoft Studio ou bien d’un modèle vierge.</p>
+</div>
+</div>
+<div class="section" id="extraire-le-modele">
+<h3>Extraire le modèle<a class="headerlink" href="#extraire-le-modele" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Selon votre besoin, vous pouvez soit récupérer directement le fichier <code class="docutils literal notranslate"><span class="pre">.jrxml</span></code>
+pour l’ajouter dans votre application Java, soit demander à Jaspersoft Studio
+de compiler le rapport et récupérer le fichier <code class="docutils literal notranslate"><span class="pre">.jrprint</span></code> pour l’ajouter dans
+votre application Java.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La compilation du rapport est possible depuis l’onglet
+<span class="guilabel">Prévisualiser</span> en choisissant l’export en tant que
+<em>Jasper Reports</em> (l’icône de disquette dans la barre d’outils de la
+prévisualisation).</p>
+</div>
+</div>
+</div>
+<div class="section" id="integration-dans-un-projet-maven">
+<h2>Intégration dans un projet Maven<a class="headerlink" href="#integration-dans-un-projet-maven" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour intégrer la génération dans votre application Java, il suffit d’ajouter
+dans votre projet les bibliothèques de <a class="reference external" href="https://community.jaspersoft.com/">JasperReports</a>. Pour un projet Maven,
+cela se limite à l’ajout d’une dépendance dans le fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code> :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>net.sf.jasperreports<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jasperreports<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>6.12.2<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si votre source de données est une base de données, vous devez également
+penser à ajouter les dépendances nécessaires comme le pilote JDBC pour
+votre base de données.</p>
+</div>
+</div>
+<div class="section" id="la-production-d-un-rapport-en-java">
+<h2>La production d’un rapport en Java<a class="headerlink" href="#la-production-d-un-rapport-en-java" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La bibliothèque <a class="reference external" href="https://community.jaspersoft.com/">JasperReports</a> permet de produire des rapports en Java à partir
+d’un fichier de modèle <code class="docutils literal notranslate"><span class="pre">.jrxml</span></code> ou du fichier compilé <code class="docutils literal notranslate"><span class="pre">.jrprint</span></code>.</p>
+<p>Pour compiler un modèle de rapport en Java, vous pouvez utiliser la classe
+<a class="reference external" href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JasperCompileManager.html">JasperCompileManager</a> :</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Compilation d’un modèle de rapport</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">FileInputStream</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="s">&quot;personnes.jrxml&quot;</span><span class="o">);</span>
+<span class="n">JasperReport</span> <span class="n">report</span> <span class="o">=</span> <span class="n">JasperCompileManager</span><span class="o">.</span><span class="na">compileReport</span><span class="o">(</span><span class="n">in</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+<p>Pour générer le rapport, vous avez besoin de l’objet de type <a class="reference external" href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JasperReport.html">JasperReport</a> qui
+est le résultat de la compilation, d’un dictionnaire représentant les
+éventuels paramètres du modèle et, bien sûr, d’une source de données. Cette dernière
+est un objet implémentant l’interface <a class="reference external" href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JRDataSource.html">JRDataSource</a>. Pour une source de données
+de type CSV, il faut utiliser un objet de type <a class="reference external" href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/data/JRCsvDataSource.html">JRCsvDataSource</a> qui attend, en
+paramètre de construction, le nom du fichier CSV :</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Génération du rapport</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">parameters</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">JRCsvDataSource</span> <span class="n">dataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JRCsvDataSource</span><span class="o">(</span><span class="s">&quot;personnes.csv&quot;</span><span class="o">);</span>
+<span class="n">dataSource</span><span class="o">.</span><span class="na">setUseFirstRowAsHeader</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="n">JasperPrint</span> <span class="n">print</span> <span class="o">=</span> <span class="n">JasperFillManager</span><span class="o">.</span><span class="na">fillReport</span><span class="o">(</span><span class="n">report</span><span class="o">,</span> <span class="n">parameters</span><span class="o">,</span> <span class="n">dataSource</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+<p>Si votre source de données est une base de données, vous devez simplement passer
+en dernier paramètre de l’appel à la méthode <code class="docutils literal notranslate"><span class="pre">fillReport</span></code> une instance d’une
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/Connection.html">Connection</a> JDBC.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si vous disposez du fichier <code class="docutils literal notranslate"><span class="pre">.jrprint</span></code>, alors vous n’avez pas besoin de
+l’étape de compilation et vous pouvez directement utiliser la méthode
+<code class="docutils literal notranslate"><span class="pre">fillReport</span></code> en passant comme premier paramètre le chemin du fichier :</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Génération du rapport à partir du modèle compilé</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">parameters</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">JRCsvDataSource</span> <span class="n">dataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JRCsvDataSource</span><span class="o">(</span><span class="s">&quot;personnes.csv&quot;</span><span class="o">);</span>
+<span class="n">dataSource</span><span class="o">.</span><span class="na">setUseFirstRowAsHeader</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="n">JasperPrint</span> <span class="n">print</span> <span class="o">=</span> <span class="n">JasperFillManager</span><span class="o">.</span><span class="na">fillReport</span><span class="o">(</span><span class="s">&quot;personnes.jrprint&quot;</span><span class="o">,</span> <span class="n">parameters</span><span class="o">,</span> <span class="n">dataSource</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Les paramètres d’un modèle de rapport peuvent être créés et positionnés dans
+le modèle avec Jaspersoft Studio. On peut, par exemple, créer dans
+le modèle un paramètre <code class="docutils literal notranslate"><span class="pre">AUTEUR</span></code> pour ajouter le nom de l’auteur dans le
+pied de page. Il suffit d’ajouter les paramètres dans un dictionnaire fourni
+en paramètre de la génération :</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Ajout d’un paramètre pour la génération du rapport.</span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">parameters</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;AUTEUR&quot;</span><span class="o">,</span> <span class="s">&quot;David Gayerie&quot;</span><span class="o">);</span>
+<span class="n">JRCsvDataSource</span> <span class="n">dataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JRCsvDataSource</span><span class="o">(</span><span class="s">&quot;personnes.csv&quot;</span><span class="o">);</span>
+<span class="n">dataSource</span><span class="o">.</span><span class="na">setUseFirstRowAsHeader</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="n">JasperPrint</span> <span class="n">print</span> <span class="o">=</span> <span class="n">JasperFillManager</span><span class="o">.</span><span class="na">fillReport</span><span class="o">(</span><span class="n">report</span><span class="o">,</span> <span class="n">parameters</span><span class="o">,</span> <span class="n">dataSource</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Enfin, l’objet de type <a class="reference external" href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JasperPrint.html">JasperPrint</a> retourné par l’appel de la méthode <code class="docutils literal notranslate"><span class="pre">fillReport</span></code>
+peut être utilisé avec un exportateur. Pour la génération d’un fichier PDF, vous
+pouvez utiliser l’exportateur <a class="reference external" href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/export/JRPdfExporter.html">JRPdfExporter</a> :</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Export du rapport en PDF</span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">JRPdfExporter</span> <span class="n">pdfExporter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JRPdfExporter</span><span class="o">();</span>
+<span class="n">pdfExporter</span><span class="o">.</span><span class="na">setExporterInput</span><span class="o">(</span><span class="k">new</span> <span class="n">SimpleExporterInput</span><span class="o">(</span><span class="n">print</span><span class="o">));</span>
+<span class="n">pdfExporter</span><span class="o">.</span><span class="na">setExporterOutput</span><span class="o">(</span><span class="k">new</span> <span class="n">SimpleOutputStreamExporterOutput</span><span class="o">(</span><span class="s">&quot;rapport.pdf&quot;</span><span class="o">));</span>
+<span class="n">pdfExporter</span><span class="o">.</span><span class="na">exportReport</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<p>Pour un export au format Excel, vous pouvez utiliser l’exportateur <a class="reference external" href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/export/ooxml/JRXlsxExporter.html">JRXlsxExporter</a> :</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Export du rapport en Excel</span><a class="headerlink" href="#id13" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">JRXlsxExporter</span> <span class="n">xlsxExporter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JRXlsxExporter</span><span class="o">();</span>
+<span class="n">xlsxExporter</span><span class="o">.</span><span class="na">setExporterInput</span><span class="o">(</span><span class="k">new</span> <span class="n">SimpleExporterInput</span><span class="o">(</span><span class="n">print</span><span class="o">));</span>
+<span class="n">xlsxExporter</span><span class="o">.</span><span class="na">setExporterOutput</span><span class="o">(</span><span class="k">new</span> <span class="n">SimpleOutputStreamExporterOutput</span><span class="o">(</span><span class="s">&quot;rapport.xlsx&quot;</span><span class="o">));</span>
+<span class="n">xlsxExporter</span><span class="o">.</span><span class="na">exportReport</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<p>Une application complète produisant un rapport PDF :</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.cgi.udev.jasper</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.FileInputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.engine.JasperCompileManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.engine.JasperFillManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.engine.JasperPrint</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.engine.JasperReport</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.engine.data.JRCsvDataSource</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.engine.export.JRPdfExporter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.export.SimpleExporterInput</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.export.SimpleOutputStreamExporterOutput</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Application</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="n">FileInputStream</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="s">&quot;personnes.jrxml&quot;</span><span class="o">);</span>
+    <span class="n">JasperReport</span> <span class="n">report</span> <span class="o">=</span> <span class="n">JasperCompileManager</span><span class="o">.</span><span class="na">compileReport</span><span class="o">(</span><span class="n">in</span><span class="o">);</span>
+
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">parameters</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+    <span class="n">parameters</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;AUTEUR&quot;</span><span class="o">,</span> <span class="s">&quot;David Gayerie&quot;</span><span class="o">);</span>
+    <span class="n">JRCsvDataSource</span> <span class="n">dataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JRCsvDataSource</span><span class="o">(</span><span class="s">&quot;personnes.csv&quot;</span><span class="o">);</span>
+    <span class="n">dataSource</span><span class="o">.</span><span class="na">setUseFirstRowAsHeader</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="n">JasperPrint</span> <span class="n">print</span> <span class="o">=</span> <span class="n">JasperFillManager</span><span class="o">.</span><span class="na">fillReport</span><span class="o">(</span><span class="n">report</span><span class="o">,</span> <span class="n">parameters</span><span class="o">,</span> <span class="n">dataSource</span><span class="o">);</span>
+
+    <span class="n">JRPdfExporter</span> <span class="n">pdfExporter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JRPdfExporter</span><span class="o">();</span>
+    <span class="n">pdfExporter</span><span class="o">.</span><span class="na">setExporterInput</span><span class="o">(</span><span class="k">new</span> <span class="n">SimpleExporterInput</span><span class="o">(</span><span class="n">print</span><span class="o">));</span>
+    <span class="n">pdfExporter</span><span class="o">.</span><span class="na">setExporterOutput</span><span class="o">(</span><span class="k">new</span> <span class="n">SimpleOutputStreamExporterOutput</span><span class="o">(</span><span class="s">&quot;rapport.pdf&quot;</span><span class="o">));</span>
+    <span class="n">pdfExporter</span><span class="o">.</span><span class="na">exportReport</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="integration-avec-spring-mvc">
+<h2>Intégration avec Spring MVC<a class="headerlink" href="#integration-avec-spring-mvc" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour intégrer la production d’un rapport à partir d’une base de données dans
+une application Spring MVC, vous devez disposer d’une <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/javax/sql/DataSource.html">DataSource</a> JDBC injectable
+dans votre contrôleur.</p>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Exemple d’intégration de la production d’un rapport dans un contrôleur</span><a class="headerlink" href="#id14" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.cgi.udev.controleur</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.OutputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.sql.Connection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.engine.JasperCompileManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.engine.JasperFillManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.engine.JasperPrint</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.engine.JasperReport</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.engine.export.JRPdfExporter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.export.SimpleExporterInput</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.export.SimpleOutputStreamExporterOutput</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RapportControleur</span> <span class="o">{</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="kd">private</span> <span class="n">DataSource</span> <span class="n">dataSource</span><span class="o">;</span>
+
+  <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">path</span><span class="o">=</span><span class="s">&quot;/rapport.pdf&quot;</span><span class="o">,</span> <span class="n">produces</span> <span class="o">=</span> <span class="s">&quot;application/pdf&quot;</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">produireRapport</span><span class="o">(</span><span class="n">OutputStream</span> <span class="n">out</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="n">InputStream</span> <span class="n">modeleInputStream</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getResourceAsStream</span><span class="o">(</span><span class="s">&quot;/rapport.jrxml&quot;</span><span class="o">);</span>
+    <span class="n">JasperReport</span> <span class="n">rapport</span> <span class="o">=</span> <span class="n">JasperCompileManager</span><span class="o">.</span><span class="na">compileReport</span><span class="o">(</span><span class="n">modeleInputStream</span><span class="o">);</span>
+    <span class="k">try</span><span class="o">(</span><span class="n">Connection</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">dataSource</span><span class="o">.</span><span class="na">getConnection</span><span class="o">())</span> <span class="o">{</span>
+      <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">parameters</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+      <span class="n">JasperPrint</span> <span class="n">print</span> <span class="o">=</span> <span class="n">JasperFillManager</span><span class="o">.</span><span class="na">fillReport</span><span class="o">(</span><span class="n">rapport</span><span class="o">,</span> <span class="n">parameters</span><span class="o">,</span> <span class="n">connection</span><span class="o">);</span>
+
+      <span class="n">JRPdfExporter</span> <span class="n">pdfExporter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JRPdfExporter</span><span class="o">();</span>
+      <span class="n">pdfExporter</span><span class="o">.</span><span class="na">setExporterInput</span><span class="o">(</span><span class="k">new</span> <span class="n">SimpleExporterInput</span><span class="o">(</span><span class="n">print</span><span class="o">));</span>
+      <span class="n">pdfExporter</span><span class="o">.</span><span class="na">setExporterOutput</span><span class="o">(</span><span class="k">new</span> <span class="n">SimpleOutputStreamExporterOutput</span><span class="o">(</span><span class="n">out</span><span class="o">));</span>
+      <span class="n">pdfExporter</span><span class="o">.</span><span class="na">exportReport</span><span class="o">();</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Habituellement, une méthode de contrôleur retourne l’identifiant de la vue à
+afficher à l’utilisateur. Dans cet exemple, c’est <a class="reference external" href="https://community.jaspersoft.com/">JasperReports</a>
+qui doit produire le document à retourner à l’utilisateur. Pour cela, on
+déclare à la ligne 30 que la méthode du contrôleur ne retourne rien (<em>void</em>)
+et qu’elle attend en paramètre un objet de type <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/OutputStream.html">OutputStream</a> correspondant au
+flux de sortie de la requête HTTP. Spring MVC considère dans ce cas que la
+méthode est responsable de la production de la réponse. On utilise donc le
+paramètre de type <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/OutputStream.html">OutputStream</a> comme flux de sortie pour la production du rapport.</p>
+<p>Le fichier <code class="docutils literal notranslate"><span class="pre">.jrxml</span></code> du modèle de rapport est récupéré depuis le <em>classpath</em>.
+Dans un projet Maven, il doit donc être placé dans le répertoire
+<code class="file docutils literal notranslate"><span class="pre">src/main/resources</span></code>.</p>
+<p>Une connexion à la base de données est ouverte à la ligne 33 pour pouvoir être
+passée en paramètre de la méthode <code class="docutils literal notranslate"><span class="pre">fillReport</span></code> ligne 35.</p>
+<p>Notez que l’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/GetMapping.html">&#64;GetMapping</a>, à la ligne 29, précise grâce à
+l’attribut <code class="docutils literal notranslate"><span class="pre">produces</span></code> que le format de la réponse est du PDF (<em>application/pdf</em>).</p>
+<p>Pour améliorer les performances, on peut réaliser la compilation du modèle de
+rapport au moment de la création du contrôleur, c’est-à-dire au lancement
+de l’application et stocker le résultat de la compilation dans un attribut
+du contrôleur</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Exemple d’intégration de la production d’un rapport dans un contrôleur</span><a class="headerlink" href="#id15" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.cgi.udev.controleur</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.OutputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.sql.Connection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.annotation.PostConstruct</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.engine.JasperCompileManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.engine.JasperFillManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.engine.JasperPrint</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.engine.JasperReport</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.engine.export.JRPdfExporter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.export.SimpleExporterInput</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.jasperreports.export.SimpleOutputStreamExporterOutput</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RapportControleur</span> <span class="o">{</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="kd">private</span> <span class="n">DataSource</span> <span class="n">dataSource</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="n">JasperReport</span> <span class="n">rapport</span><span class="o">;</span>
+
+  <span class="nd">@PostConstruct</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">compilerRapport</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="n">InputStream</span> <span class="n">modeleInputStream</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getResourceAsStream</span><span class="o">(</span><span class="s">&quot;/rapport.jrxml&quot;</span><span class="o">);</span>
+    <span class="n">rapport</span> <span class="o">=</span> <span class="n">JasperCompileManager</span><span class="o">.</span><span class="na">compileReport</span><span class="o">(</span><span class="n">modeleInputStream</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">path</span><span class="o">=</span><span class="s">&quot;/rapport.pdf&quot;</span><span class="o">,</span> <span class="n">produces</span> <span class="o">=</span> <span class="s">&quot;application/pdf&quot;</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">produireRapport</span><span class="o">(</span><span class="n">OutputStream</span> <span class="n">out</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="k">try</span><span class="o">(</span><span class="n">Connection</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">dataSource</span><span class="o">.</span><span class="na">getConnection</span><span class="o">())</span> <span class="o">{</span>
+      <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">parameters</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+      <span class="n">JasperPrint</span> <span class="n">print</span> <span class="o">=</span> <span class="n">JasperFillManager</span><span class="o">.</span><span class="na">fillReport</span><span class="o">(</span><span class="n">rapport</span><span class="o">,</span> <span class="n">parameters</span><span class="o">,</span> <span class="n">connection</span><span class="o">);</span>
+
+      <span class="n">JRPdfExporter</span> <span class="n">pdfExporter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JRPdfExporter</span><span class="o">();</span>
+      <span class="n">pdfExporter</span><span class="o">.</span><span class="na">setExporterInput</span><span class="o">(</span><span class="k">new</span> <span class="n">SimpleExporterInput</span><span class="o">(</span><span class="n">print</span><span class="o">));</span>
+      <span class="n">pdfExporter</span><span class="o">.</span><span class="na">setExporterOutput</span><span class="o">(</span><span class="k">new</span> <span class="n">SimpleOutputStreamExporterOutput</span><span class="o">(</span><span class="n">out</span><span class="o">));</span>
+      <span class="n">pdfExporter</span><span class="o">.</span><span class="na">exportReport</span><span class="o">();</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../spring_data/spring_data_jpa.html" class="btn btn-neutral float-left" title="JPA avec Spring Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright David Gayerie - david.gayerie@reseau-cd.net - CC-BY-SA
+
+    </p>
+  </div>
+    <div>Téléchargez ce support au format <a class="reference download" href="https://github.com/spoonless/udev3-spring/archive/gh-pages.zip">HTML</a>
+    </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
